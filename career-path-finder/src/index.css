@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+.app-container {
+  text-align: center;
+  padding: 2rem;
+}
