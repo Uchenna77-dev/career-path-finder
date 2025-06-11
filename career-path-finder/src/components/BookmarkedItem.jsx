@@ -1,15 +1,25 @@
 // src/components/BookmarkedItem.jsx
-import React from "react";
+import React from 'react';
+import '../assets/styles/bookmarkedItem.css';
 
 const BookmarkedItem = ({ item }) => {
   return (
-    <div className="bg-white shadow-md p-4 rounded-lg mb-4">
-      <h4 className="text-lg font-bold">{item.title}</h4>
-      <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-        View
-      </a>
+    <div className="bookmark-card">
+      <h4 className="bookmark-title">{item.title}</h4>
+      <p className="bookmark-description">{item.description}</p>
+      {item.link && (
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bookmark-link"
+        >
+          View More →
+        </a>
+      )}
     </div>
   );
 };
 
 export default BookmarkedItem;
+

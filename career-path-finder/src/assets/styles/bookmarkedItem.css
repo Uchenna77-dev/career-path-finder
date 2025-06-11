@@ -1,0 +1,33 @@
+/* src/assets/styles/bookmarkedItem.css */
+
+.bookmark-card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.bookmark-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.bookmark-description {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.bookmark-link {
+  display: inline-block;
+  color: #0073e6;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.bookmark-link:hover {
+  text-decoration: underline;
+}

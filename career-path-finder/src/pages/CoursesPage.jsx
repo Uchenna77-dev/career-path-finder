@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { getCourses } from '../services/udemy';
 import { useSearchParams } from 'react-router-dom';
+import '../assets/styles/courses.css'; // External stylesheet
 
 function CoursesPage() {
   const [courses, setCourses] = useState([]);
@@ -20,22 +21,22 @@ function CoursesPage() {
   }, [query]);
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-semibold mb-4">Courses on "{query}"</h2>
+    <div className="courses-page">
+      <h2 className="courses-title">Courses on "{query}"</h2>
       {loading ? (
-        <p>Loading courses...</p>
+        <p className="loading-text">Loading courses...</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="course-grid">
           {courses.map((course) => (
-            <div key={course.id} className="border p-4 rounded shadow">
-              <img src={course.image_480x270} alt={course.title} className="mb-2" />
-              <h3 className="text-lg font-medium">{course.title}</h3>
-              <p className="text-sm">{course.visible_instructors?.[0]?.title}</p>
+            <div key={course.id} className="course-card">
+              <img src={course.image_480x270} alt={course.title} className="course-image" />
+              <h3 className="course-title">{course.title}</h3>
+              <p className="instructor">{course.visible_instructors?.[0]?.title}</p>
               <a
                 href={`https://www.udemy.com${course.url}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 mt-2 inline-block"
+                className="course-link"
               >
                 View Course →
               </a>

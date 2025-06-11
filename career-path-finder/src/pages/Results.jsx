@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getCareerRecommendations } from "../services/openAI";
+import '../assets/styles/results.css'; // External CSS styling
 
 const Results = () => {
   const location = useLocation();
@@ -18,17 +19,17 @@ const Results = () => {
     fetchRecommendations();
   }, [quizData]);
 
-  if (loading) return <p className="text-center">Loading career suggestions...</p>;
+  if (loading) return <p className="loading">Loading career suggestions...</p>;
 
   return (
-    <div className="max-w-3xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Career Recommendations</h1>
+    <div className="results-container">
+      <h1 className="results-title">Career Recommendations</h1>
       {recommendations?.careers?.map((career, index) => (
-        <div key={index} className="bg-white rounded-lg shadow-md p-4 mb-4">
-          <h2 className="text-xl font-semibold">{career.title}</h2>
-          <p className="text-gray-700">{career.description}</p>
-          <h3 className="mt-2 font-medium">Key Skills:</h3>
-          <ul className="list-disc list-inside text-sm text-gray-600">
+        <div key={index} className="career-card">
+          <h2 className="career-title">{career.title}</h2>
+          <p className="career-description">{career.description}</p>
+          <h3 className="skills-heading">Key Skills:</h3>
+          <ul className="skills-list">
             {career.skills.map((skill, i) => (
               <li key={i}>{skill}</li>
             ))}

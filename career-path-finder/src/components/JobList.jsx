@@ -1,22 +1,25 @@
 // src/components/JobList.jsx
 import React from "react";
+import '../assets/styles/joblist.css';
 
 const JobList = ({ jobs }) => {
-  if (!jobs.length) return <p>No jobs found.</p>;
+  if (!jobs.length) return <p className="no-jobs">No jobs found.</p>;
 
   return (
-    <div className="space-y-4 mt-6">
+    <div className="job-list">
       {jobs.map((job) => (
-        <div key={job.id} className="border p-4 rounded-lg shadow">
-          <h3 className="text-xl font-semibold">{job.title}</h3>
-          <p className="text-gray-700">{job.company.display_name}</p>
-          <p>{job.location.display_name}</p>
-          <p>Salary: {job.salary_min ? `£${job.salary_min.toLocaleString()}` : "N/A"}</p>
+        <div key={job.id} className="job-card">
+          <h3 className="job-title">{job.title}</h3>
+          <p className="job-company">{job.company.display_name}</p>
+          <p className="job-location">{job.location.display_name}</p>
+          <p className="job-salary">
+            Salary: {job.salary_min ? `£${job.salary_min.toLocaleString()}` : "N/A"}
+          </p>
           <a
             href={job.redirect_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 underline mt-2 inline-block"
+            className="job-link"
           >
             View Job
           </a>

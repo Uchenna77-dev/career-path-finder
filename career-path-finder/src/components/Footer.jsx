@@ -1,7 +1,11 @@
+// src/components/Footer.jsx
+import React from 'react';
+import '../assets/styles/footer.css';
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-200 text-center py-4 mt-6">
+    <footer className="site-footer">
       <p>&copy; 2025 Career Path Finder. All rights reserved.</p>
     </footer>
-  )
+  );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // <-- Step 1: Import useNavigate
+import '../assets/styles/Quiz.css';
 
 const questions = [
   { id: 1, question: "What type of tasks do you enjoy?", options: ["Problem-solving", "Creative work", "Helping people", "Working with data"] },
@@ -24,28 +25,29 @@ export default function Quiz() {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Career Quiz</h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="quiz-container">
+      <h2 className="quiz-title">Career Quiz</h2>
+      <form onSubmit={handleSubmit} className="quiz-form">
         {questions.map(q => (
-          <div key={q.id}>
-            <p className="font-medium mb-2">{q.question}</p>
-            {q.options.map(opt => (
-              <label key={opt} className="block">
-                <input
-                  type="radio"
-                  name={`question-${q.id}`}
-                  value={opt}
-                  checked={answers[q.id] === opt}
-                  onChange={() => handleSelect(q.id, opt)}
-                  className="mr-2"
-                />
-                {opt}
-              </label>
-            ))}
+          <div key={q.id} className="question-block">
+            <p className="question-text">{q.question}</p>
+            <div className="options">
+              {q.options.map(opt => (
+                <label key={opt} className="option-label">
+                  <input
+                    type="radio"
+                    name={`question-${q.id}`}
+                    value={opt}
+                    checked={answers[q.id] === opt}
+                    onChange={() => handleSelect(q.id, opt)}
+                  />
+                  {opt}
+                </label>
+              ))}
+            </div>
           </div>
         ))}
-        <button type="submit" className="bg-teal-600 text-white py-2 px-4 rounded">Submit</button>
+        <button type="submit" className="submit-button">Submit Quiz</button>
       </form>
     </div>
   );

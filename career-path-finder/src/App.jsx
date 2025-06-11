@@ -12,20 +12,19 @@ import JobsPage from "./pages/JobsPage";
 
 function App() {
   return (
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen font-sans bg-[#f4f7fa] text-gray-800">
         <Header />
-        <main className="flex-grow p-4">
+        <main className="flex-grow container mx-auto px-4 py-6">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/results" element={<Results />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/quiz" element={<Quiz />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/jobs" element={<JobsPage />} />
           </Routes>
         </main>
         <Footer />
       </div>
+
   );
 }
 

@@ -1,0 +1,47 @@
+/* src/assets/styles/joblist.css */
+
+.job-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.job-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.job-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.job-company,
+.job-location,
+.job-salary {
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.job-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0077cc;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.job-link:hover {
+  color: #005fa3;
+}
+
+.no-jobs {
+  text-align: center;
+  color: #999;
+  margin-top: 2rem;
+}
